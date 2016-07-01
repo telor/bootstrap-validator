@@ -229,7 +229,7 @@
 
     $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html())
     $block.empty().append(errors)
-    $group.addClass('has-error has-danger')
+    $wrapper.addClass('has-error has-danger')
 
     $group.hasClass('has-feedback')
       && $feedback.removeClass(this.options.feedback.success)
@@ -244,7 +244,7 @@
     var $feedback = $wrapper.find('.form-control-feedback')
 
     $block.html($block.data('bs.validator.originalContent'))
-    $group.removeClass('has-error has-danger')
+    $wrapper.removeClass('has-error has-danger')
 
     $group.hasClass('has-feedback')
       && $feedback.removeClass(this.options.feedback.error)
