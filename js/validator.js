@@ -216,9 +216,10 @@
   Validator.prototype.showErrors = function ($el) {
     var method = this.options.html ? 'html' : 'text'
     var errors = $el.data('bs.validator.errors')
+    var $wrapper = $el.closest('.input, .form-group')
     var $group = $el.closest('.form-group')
-    var $block = $group.find('.help-block.with-errors')
-    var $feedback = $group.find('.form-control-feedback')
+    var $block = $wrapper.find('.help-block.with-errors')
+    var $feedback = $wrapper.find('.form-control-feedback')
 
     if (!errors.length) return
 
@@ -237,9 +238,10 @@
   }
 
   Validator.prototype.clearErrors = function ($el) {
+    var $wrapper = $el.closest('.input, .form-group')
     var $group = $el.closest('.form-group')
-    var $block = $group.find('.help-block.with-errors')
-    var $feedback = $group.find('.form-control-feedback')
+    var $block = $wrapper.find('.help-block.with-errors')
+    var $feedback = $wrapper.find('.form-control-feedback')
 
     $block.html($block.data('bs.validator.originalContent'))
     $group.removeClass('has-error has-danger')
